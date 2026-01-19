@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fragrance Boutique | בוקעתא</title>
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#11131a;
+      --text:#eef2ff;
+      --muted:#b7c0d8;
+      --gold:#c9a227;
+      --line:rgba(255,255,255,.08);
+      --shadow:0 18px 50px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(1200px 800px at 20% 0%, #14162a, var(--bg));
+         color:var(--text);}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1050px;margin:0 auto;padding:24px}
+    .hero{padding:54px 0 18px}
+    .pill{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);
+          background:rgba(255,255,255,.03)}
+    .pill b{color:var(--text)}
+    h1{font-size:42px;line-height:1.15;margin:18px 0 10px}
+    .sub{font-size:18px;line-height:1.7;color:var(--muted);max-width:760px;margin:0 0 22px}
+    .ctaRow{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);
+         background:rgba(255,255,255,.06);color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .btn.primary{background:linear-gradient(135deg, #1f7a4f, #18a06a);border-color:rgba(255,255,255,.12)}
+    .btn.gold{background:linear-gradient(135deg, #8a6b12, var(--gold));border-color:rgba(255,255,255,.15);color:#111}
+    .grid{display:grid;gap:14px}
+    @media(min-width:900px){.grid.cols3{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:900px){.grid.cols2{grid-template-columns:repeat(2,1fr)}}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+          border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+    .kpis{margin-top:18px}
+    .kpi{padding:14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .kpi b{display:block;font-size:18px;margin-bottom:6px}
+    .kpi span{color:var(--muted);font-size:14px;line-height:1.6}
+    .section{padding:26px 0}
+    .section h2{margin:0 0 10px;font-size:26px}
+    .note{color:var(--muted);font-size:13px;line-height:1.7}
+    .tag{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.25);
+         color:#f6e3a5;font-size:12px}
+    .prod h3{margin:0 0 6px;font-size:18px}
+    .prod p{margin:0;color:var(--muted);line-height:1.65}
+    .prod .meta{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03)}
+    .faq details{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);padding:14px}
+    .faq summary{cursor:pointer;font-weight:700}
+    .faq p{margin:10px 0 0;color:var(--muted);line-height:1.7}
+    footer{padding:28px 0 40px;color:var(--muted);border-top:1px solid var(--line);margin-top:22px}
+    .footerRow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="pill">📍 <b>בוקעתא</b> · בשמים בהשראת ניחוחות עולמיים · <span style="color:#8ef1c2">ייעוץ אישי במקום</span></div>
+      <h1>אוהבים ניחוחות יוקרתיים?<br/>קבלו את אותה התחושה – במחיר חכם יותר</h1>
+      <p class="sub">
+        בשמים לגברים ולנשים בהשראת ריחות עולמיים מוכרים. ריח עשיר, עמידות גבוהה, ובחירה חכמה ליום-יום ולמתנה.
+      </p>
+
+      <div class="ctaRow">
+        <a class="btn primary" href="https://wa.me/972XXXXXXXXX?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%91%D7%97%D7%99%D7%A8%D7%AA%20%D7%91%D7%95%D7%A9%D7%9D%20%F0%9F%8C%BF" target="_blank" rel="noopener">
+          💬 הזמנה בוואטסאפ
+        </a>
+        <a class="btn" href="#men">בשמים לגברים</a>
+        <a class="btn" href="#women">בשמים לנשים</a>
+        <a class="btn gold" href="#visit">📍 בואו לבקר בחנות</a>
+      </div>
+
+      <div class="grid cols3 kpis">
+        <div class="kpi"><b>עמידות גבוהה</b><span>בחירה מצוינת ביחס למחיר – במיוחד לשימוש יומי.</span></div>
+        <div class="kpi"><b>התאמה אישית</b><span>אומרים לנו: “סוף סוף מישהו מבין מה אני אוהב/ת”.</span></div>
+        <div class="kpi"><b>מתנה בטוחה</b><span>ריחות מוכרים ואהובים שמתאימים כמעט לכל אחד.</span></div>
+      </div>
+    </header>
+
+    <section class="section card">
+      <h2>למה לבחור בנו?</h2>
+      <div class="grid cols2" style="margin-top:14px">
+        <div class="kpi"><b>ריחות מוכרים – בלי לשלם על השם</b><span>אנחנו בונים בחירה סביב הריח וההרגשה, לא סביב הלוגו.</span></div>
+        <div class="kpi"><b>עוזרים לבחור נכון</b><span>חזקים או עדינים? יומי או אירועים? נשאל 2–3 שאלות ונתאים.</span></div>
+      </div>
+      <p class="note" style="margin-top:14px">
+        *הבשמים מוצגים כהשראה לניחוחות מוכרים ואינם קשורים לחברות המקוריות.
+      </p>
+    </section>
+
+    <section class="section" id="men">
+      <h2>בשמים לגברים</h2>
+      <div class="grid cols3">
+        <div class="card prod">
+          <span class="tag">Inspired</span>
+          <h3>Savage Night</h3>
+          <p>ניחוח רענן-גברי עם נוכחות ברורה. מתאים ליום ולערב.</p>
+          <div class="meta">
+            <span class="chip">רענן</span><span class="chip">עצים</span><span class="chip">נוכחות</span>
+          </div>
+        </div>
+        <div class="card prod">
+          <span class="tag">Inspired</span>
+          <h3>Blue Code</h3>
+          <p>ריח נקי, אלגנטי ויומיומי. לגבר שאוהב פשטות יוקרתית.</p>
+          <div class="meta">
+            <span class="chip">נקי</span><span class="chip">אלגנטי</span><span class="chip">יומיומי</span>
+          </div>
+        </div>
+        <div class="card prod">
+          <span class="tag">Inspired</span>
+          <h3>Black Crown</h3>
+          <p>ניחוח עוצמתי ודומיננטי לאירועים ולרושם ראשון חזק.</p>
+          <div class="meta">
+            <span class="chip">חזק</span><span class="chip">יוקרה</span><span class="chip">אירועים</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="women">
+      <h2>בשמים לנשים</h2>
+      <div class="grid cols3">
+        <div class="card prod">
+          <span class="tag">Inspired</span>
+          <h3>Golden Bloom</h3>
+          <p>נשיות אלגנטית ומאוזנת. בחירה מושלמת כמתנה.</p>
+          <div class="meta">
+            <span class="chip">אלגנטי</span><span class="chip">מתנה</span><span class="chip">מאוזן</span>
+          </div>
+        </div>
+        <div class="card prod">
+          <span class="tag">Inspired</span>
+          <h3>Midnight Rose</h3>
+          <p>ריח חמים וממכר לערב ולאירועים מיוחדים.</p>
+          <div class="meta">
+            <span class="chip">חמים</span><span class="chip">ערב</span><span class="chip">ממכר</span>
+          </div>
+        </div>
+        <div class="card prod">
+          <span class="tag">Inspired</span>
+          <h3>Pure Grace</h3>
+          <p>ניחוח רך ונעים לשימוש יומי. נקי ונוח לאורך היום.</p>
+          <div class="meta">
+            <span class="chip">רך</span><span class="chip">נעים</span><span class="chip">יומי</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section card faq">
+      <h2>שאלות נפוצות</h2>
+      <div class="grid" style="gap:10px;margin-top:14px">
+        <details>
+          <summary>האם זה בושם מקורי?</summary>
+          <p>לא. מדובר בבשמים בהשראת ניחוחות מוכרים, ללא קשר לחברות המקוריות.</p>
+        </details>
+        <details>
+          <summary>האם הריח דומה?</summary>
+          <p>כן, דומה מאוד בתחושה הכללית. המטרה היא לקבל “את אותו הוייב” במחיר חכם.</p>
+        </details>
+        <details>
+          <summary>איך בוחרים נכון?</summary>
+          <p>פשוט: אומרים לנו אם אתם אוהבים ריח חזק/עדין, יומי/אירועים, מתוק/עציי – ואנחנו מתאימים.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section card" id="visit">
+      <h2>בואו לבקר / הזמנה מהירה</h2>
+      <p class="sub" style="margin:0 0 14px">
+        רוצים המלצה אישית? שלחו הודעה בוואטסאפ ונשאל 2–3 שאלות קצרות כדי להתאים לכם את הריח.
+      </p>
+      <div class="ctaRow">
+        <a class="btn primary" href="https://wa.me/972XXXXXXXXX?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%9E%D7%9C%D7%A6%D7%94%20%D7%A2%D7%9C%20%D7%91%D7%95%D7%A9%D7%9D%20%F0%9F%91%83" target="_blank" rel="noopener">
+          💬 שלחו הודעה עכשיו
+        </a>
+        <div class="btn" style="pointer-events:none">📍 בוקעתא · 🕒 פתוח כל השבוע</div>
+      </div>
+      <p class="note" style="margin-top:12px">
+        ניתן להחליף שם חנות, כתובת ושעות פתיחה לפי הצורך — זה דמו להמחשה.
+      </p>
+    </section>
+
+    <footer>
+      <div class="footerRow">
+        <div>לא משלמים על השם – משלמים על ההרגשה.</div>
+        <div class="note">Demo Page · Fragrance Boutique | בוקעתא</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
