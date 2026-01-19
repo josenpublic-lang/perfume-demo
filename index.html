@@ -2,195 +2,967 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fragrance Boutique | בוקעתא</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#070a10" />
+  <title>Luxury Fragrance — Demo</title>
+  <meta name="description" content="Luxury fragrance demo landing — cinematic design, WhatsApp CTA, collections & product modal." />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Typography (Global, luxury, clean) -->
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#0b0c10;
-      --card:#11131a;
-      --text:#eef2ff;
-      --muted:#b7c0d8;
-      --gold:#c9a227;
-      --line:rgba(255,255,255,.08);
-      --shadow:0 18px 50px rgba(0,0,0,.45);
+      /* Core palette: cinematic night + gold */
+      --bg0:#05070b;
+      --bg1:#070a10;
+      --bg2:#0a111c;
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --muted2: rgba(255,255,255,.52);
+
+      --gold:#c7a46a;
+      --gold2:#f0d6a2;
+      --ice:#8dd7ff;
+      --line: rgba(255,255,255,.12);
+
+      --glass: rgba(255,255,255,.06);
+      --glass2: rgba(255,255,255,.04);
+
+      --shadow: 0 30px 90px rgba(0,0,0,.55);
+      --shadow2: 0 14px 45px rgba(0,0,0,.40);
+
+      --r12: 12px;
+      --r18: 18px;
+      --r26: 26px;
+      --max: 1180px;
+
+      --font: "Heebo", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
     }
+
     *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(1200px 800px at 20% 0%, #14162a, var(--bg));
-         color:var(--text);}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(900px 620px at 85% 12%, rgba(141,215,255,.12), transparent 58%),
+        radial-gradient(900px 620px at 12% 14%, rgba(199,164,106,.16), transparent 56%),
+        radial-gradient(900px 720px at 50% 120%, rgba(170,120,255,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg2));
+      overflow-x:hidden;
+    }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1050px;margin:0 auto;padding:24px}
-    .hero{padding:54px 0 18px}
-    .pill{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);
-          background:rgba(255,255,255,.03)}
-    .pill b{color:var(--text)}
-    h1{font-size:42px;line-height:1.15;margin:18px 0 10px}
-    .sub{font-size:18px;line-height:1.7;color:var(--muted);max-width:760px;margin:0 0 22px}
-    .ctaRow{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);
-         background:rgba(255,255,255,.06);color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .btn.primary{background:linear-gradient(135deg, #1f7a4f, #18a06a);border-color:rgba(255,255,255,.12)}
-    .btn.gold{background:linear-gradient(135deg, #8a6b12, var(--gold));border-color:rgba(255,255,255,.15);color:#111}
-    .grid{display:grid;gap:14px}
-    @media(min-width:900px){.grid.cols3{grid-template-columns:repeat(3,1fr)}}
-    @media(min-width:900px){.grid.cols2{grid-template-columns:repeat(2,1fr)}}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-          border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
-    .kpis{margin-top:18px}
-    .kpi{padding:14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
-    .kpi b{display:block;font-size:18px;margin-bottom:6px}
-    .kpi span{color:var(--muted);font-size:14px;line-height:1.6}
-    .section{padding:26px 0}
-    .section h2{margin:0 0 10px;font-size:26px}
-    .note{color:var(--muted);font-size:13px;line-height:1.7}
-    .tag{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.25);
-         color:#f6e3a5;font-size:12px}
-    .prod h3{margin:0 0 6px;font-size:18px}
-    .prod p{margin:0;color:var(--muted);line-height:1.65}
-    .prod .meta{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
-    .chip{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03)}
-    .faq details{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);padding:14px}
-    .faq summary{cursor:pointer;font-weight:700}
-    .faq p{margin:10px 0 0;color:var(--muted);line-height:1.7}
-    footer{padding:28px 0 40px;color:var(--muted);border-top:1px solid var(--line);margin-top:22px}
-    .footerRow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+    button{font-family:inherit}
+    ::selection{background:rgba(199,164,106,.35)}
+
+    /* Subtle film grain (luxury editorial feel) */
+    .grain{
+      pointer-events:none;
+      position:fixed; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      opacity:.18;
+      z-index:999;
+    }
+
+    .wrap{max-width:var(--max); margin:0 auto; padding: 22px;}
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(180deg, rgba(8,10,16,.78), rgba(8,10,16,.38));
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .topbar .row{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 14px 22px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      letter-spacing:.2px;
+    }
+    .mark{
+      width:40px; height:40px; border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.26), transparent 45%),
+        linear-gradient(135deg, rgba(199,164,106,1), rgba(141,215,255,1));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 16px 40px rgba(0,0,0,.45);
+    }
+    .brand .name{font-weight:900; font-size:15px}
+    .brand .sub{color:var(--muted2); font-size:12px; margin-top:2px}
+
+    .nav{display:flex; gap:10px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:13px}
+    .nav a{
+      padding: 8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition: .15s ease;
+    }
+    .nav a:hover{
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, filter .15s ease;
+      box-shadow: 0 14px 40px rgba(0,0,0,.28);
+      font-weight: 800;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(199,164,106,1), rgba(141,215,255,1));
+      color:#09111c;
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 24px 70px rgba(199,164,106,.16), 0 24px 70px rgba(141,215,255,.12);
+    }
+    .btn.primary:hover{transform: translateY(-2px); filter: brightness(1.03)}
+    .btn.ghost{background: transparent}
+
+    /* Hero */
+    .hero{
+      padding: 30px 0 12px;
+      position:relative;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 16px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){ .heroGrid{grid-template-columns: 1fr;} }
+
+    .card{
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: var(--r26);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* Cinematic light sweep */
+    .card.sweep::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(520px 220px at 82% 18%, rgba(141,215,255,.18), transparent 60%),
+        radial-gradient(520px 260px at 18% 18%, rgba(199,164,106,.20), transparent 62%),
+        linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .card > *{position:relative}
+
+    .heroMain{padding: 28px}
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:12px; color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 8px 10px;
+      border-radius: 999px;
+      width:fit-content;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: #27d07d;
+      box-shadow: 0 0 0 6px rgba(39,208,125,.12);
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(30px, 3.3vw, 50px);
+      line-height: 1.07;
+      letter-spacing:.2px;
+    }
+    .lead{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
+      max-width: 62ch;
+    }
+    .lead b{color:var(--text)}
+    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+
+    .heroMeta{
+      margin-top: 16px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .pill{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Right hero: editorial image panel */
+    .heroSide{
+      display:flex; flex-direction:column;
+      min-height: 360px;
+    }
+    .sideImg{
+      flex:1;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.55)),
+        url("https://images.unsplash.com/photo-1619994121345-b61cd610d0d5?auto=format&fit=crop&w=1400&q=70");
+      background-size: cover;
+      background-position: center;
+    }
+    .sideBody{
+      padding: 16px;
+      border-top:1px solid rgba(255,255,255,.10);
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .sideTitle{font-weight:900; letter-spacing:.2px}
+    .sideText{color:var(--muted); font-size:13px; line-height:1.7}
+    .kpis{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    .kpi{
+      padding: 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .kpi .big{font-weight:900; font-size:16px}
+    .kpi .small{color:var(--muted2); font-size:12px; margin-top:2px}
+
+    /* Sections */
+    section{padding: 18px 0}
+    .sectionTitle{
+      display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      margin: 10px 0 12px;
+    }
+    .sectionTitle h2{margin:0; font-size:22px; letter-spacing:.2px}
+    .sectionTitle p{margin:0; color:var(--muted); font-size:13px}
+
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    @media (max-width: 980px){ .grid3{grid-template-columns:1fr} }
+
+    .feature{
+      padding: 16px;
+      border-radius: var(--r18);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow2);
+    }
+    .feature b{display:block; margin-bottom:6px}
+    .feature span{color:var(--muted); font-size:14px; line-height:1.65}
+
+    /* Collection strip (luxury gallery) */
+    .strip{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 980px){ .strip{grid-template-columns:1fr} }
+
+    .panel{
+      border-radius: var(--r26);
+      border:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow2);
+      position:relative;
+      min-height: 280px;
+      transform: translateZ(0);
+    }
+    .panel::before{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.70));
+      pointer-events:none;
+    }
+    .panel .bg{position:absolute; inset:0; background-size:cover; background-position:center; filter:saturate(1.05) contrast(1.05)}
+    .panel .content{
+      position:absolute; inset:auto 16px 16px 16px;
+      display:flex; flex-direction:column; gap:8px;
+    }
+    .tag{
+      width:fit-content;
+      padding: 7px 10px;
+      border-radius:999px;
+      background: rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.16);
+      font-size:12px;
+      color: rgba(255,255,255,.86);
+      backdrop-filter: blur(12px);
+    }
+    .panel h3{margin:0; font-size:18px; font-weight:900}
+    .panel p{margin:0; color: rgba(255,255,255,.72); font-size:13px; line-height:1.65; max-width:60ch}
+
+    /* Products */
+    .toolbar{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      padding: 10px 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      box-shadow: var(--shadow2);
+      margin: 12px 0 14px;
+    }
+    .tabs{display:flex; gap:8px; flex-wrap:wrap}
+    .tabBtn{
+      padding: 8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      cursor:pointer;
+      font-size:13px;
+      user-select:none;
+      transition: .15s ease;
+    }
+    .tabBtn:hover{background: rgba(255,255,255,.05); color: var(--text)}
+    .tabBtn.active{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.20);
+      color: var(--text);
+    }
+    .search{max-width: 320px; flex:1}
+    .search input{
+      width:100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(10,12,18,.35);
+      color: var(--text);
+      outline:none;
+    }
+    .search input::placeholder{color: rgba(255,255,255,.45)}
+
+    .products{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 980px){ .products{grid-template-columns:1fr} }
+
+    .product{
+      border-radius: var(--r26);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .product:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.20);
+      background: rgba(255,255,255,.045);
+    }
+    .pimg{
+      height: 210px;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+    }
+    .badge{
+      position:absolute; top:12px; left:12px;
+      padding: 7px 10px;
+      border-radius:999px;
+      background: rgba(0,0,0,.48);
+      border:1px solid rgba(255,255,255,.16);
+      font-size:12px;
+      color: rgba(255,255,255,.88);
+      backdrop-filter: blur(12px);
+    }
+    .pbody{padding: 14px}
+    .pname{font-weight: 900; letter-spacing:.2px}
+    .pdesc{margin: 6px 0 10px; color: var(--muted); font-size: 13.5px; line-height:1.6}
+    .prow{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap}
+    .price{
+      font-weight: 900;
+      color:#09111c;
+      background: linear-gradient(135deg, rgba(199,164,106,1), rgba(141,215,255,1));
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .smallBtn{
+      padding: 10px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-weight: 900;
+      cursor:pointer;
+      transition:.15s ease;
+    }
+    .smallBtn:hover{background: rgba(255,255,255,.08); transform: translateY(-1px)}
+
+    /* Reviews */
+    .quotes{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    @media (max-width: 980px){ .quotes{grid-template-columns:1fr} }
+    .quote{
+      padding: 16px;
+      border-radius: var(--r26);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow2);
+    }
+    .quote p{margin:0 0 10px; color: var(--muted); line-height:1.75}
+    .who{font-weight: 900}
+    .meta{color: var(--muted2); font-size:12px; margin-top:2px}
+
+    /* FAQ */
+    details{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding: 12px 14px;
+      box-shadow: var(--shadow2);
+    }
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:900; outline:none}
+    details p{margin:10px 0 0; color:var(--muted); line-height:1.75}
+
+    /* Footer */
+    footer{
+      padding: 20px 0 34px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+    .footRow{
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:12px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+
+    /* Floating WhatsApp */
+    .waFloat{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 80;
+      display:flex; align-items:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: rgba(39,208,125,.92);
+      color: #07120d;
+      font-weight: 900;
+      border:1px solid rgba(255,255,255,.20);
+      box-shadow: 0 24px 70px rgba(0,0,0,.45);
+      backdrop-filter: blur(12px);
+    }
+    .waIcon{
+      width:18px; height:18px; display:inline-block;
+      background: currentColor;
+      -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19.11 17.37c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.18-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.65 1.12 2.83.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.55.58.65.21 1.25.18 1.72.11.52-.08 1.6-.65 1.82-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.32zM16.02 3.2c-6.98 0-12.65 5.66-12.65 12.64 0 2.22.58 4.38 1.69 6.29L3.2 28.8l6.85-1.8c1.84 1 3.92 1.53 6.01 1.53h.01c6.98 0 12.64-5.66 12.64-12.65 0-3.38-1.32-6.56-3.71-8.95-2.39-2.39-5.57-3.71-8.98-3.73zm0 22.66h-.01c-1.88 0-3.73-.5-5.34-1.45l-.38-.23-4.06 1.07 1.08-3.96-.25-.4a10.49 10.49 0 0 1-1.61-5.61c0-5.78 4.71-10.49 10.5-10.49 2.8.01 5.43 1.1 7.4 3.08 1.97 1.98 3.05 4.61 3.05 7.41 0 5.79-4.71 10.5-10.48 10.58z"/></svg>') center/contain no-repeat;
+      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19.11 17.37c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.18-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.65 1.12 2.83.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.55.58.65.21 1.25.18 1.72.11.52-.08 1.6-.65 1.82-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.32zM16.02 3.2c-6.98 0-12.65 5.66-12.65 12.64 0 2.22.58 4.38 1.69 6.29L3.2 28.8l6.85-1.8c1.84 1 3.92 1.53 6.01 1.53h.01c6.98 0 12.64-5.66 12.64-12.65 0-3.38-1.32-6.56-3.71-8.95-2.39-2.39-5.57-3.71-8.98-3.73zm0 22.66h-.01c-1.88 0-3.73-.5-5.34-1.45l-.38-.23-4.06 1.07 1.08-3.96-.25-.4a10.49 10.49 0 0 1-1.61-5.61c0-5.78 4.71-10.49 10.5-10.49 2.8.01 5.43 1.1 7.4 3.08 1.97 1.98 3.05 4.61 3.05 7.41 0 5.79-4.71 10.5-10.48 10.58z"/></svg>') center/contain no-repeat;
+    }
+
+    /* Modal */
+    .modalOverlay{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.62);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index: 120;
+    }
+    .modal{
+      width: min(980px, 100%);
+      border-radius: var(--r26);
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(16,20,34,.92), rgba(10,14,24,.92));
+      box-shadow: 0 40px 120px rgba(0,0,0,.68);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 980px){ .modal{grid-template-columns:1fr;} }
+    .mImg{
+      min-height: 300px;
+      background-size: cover;
+      background-position:center;
+      position:relative;
+    }
+    .mImg::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.60));
+      pointer-events:none;
+    }
+    .mBody{padding: 18px}
+    .mTop{display:flex; align-items:flex-start; justify-content:space-between; gap:12px}
+    .close{
+      width:42px;height:42px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      font-size: 18px;
+    }
+    .mBody h3{margin:0 0 6px}
+    .mBody p{margin:0 0 12px; color: var(--muted); line-height:1.75}
+    .mTags{display:flex; gap:8px; flex-wrap:wrap; margin: 10px 0 14px}
+
+    /* Reveal animations */
+    .reveal{
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto !important}
+      .reveal{opacity:1 !important; transform:none !important}
+      .btn, .product{transition:none !important}
+    }
+
+    /* Smooth scroll */
+    html{scroll-behavior:smooth}
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header class="hero">
-      <div class="pill">📍 <b>בוקעתא</b> · בשמים בהשראת ניחוחות עולמיים · <span style="color:#8ef1c2">ייעוץ אישי במקום</span></div>
-      <h1>אוהבים ניחוחות יוקרתיים?<br/>קבלו את אותה התחושה – במחיר חכם יותר</h1>
-      <p class="sub">
-        בשמים לגברים ולנשים בהשראת ריחות עולמיים מוכרים. ריח עשיר, עמידות גבוהה, ובחירה חכמה ליום-יום ולמתנה.
-      </p>
+  <div class="grain"></div>
 
-      <div class="ctaRow">
-        <a class="btn primary" href="https://wa.me/972XXXXXXXXX?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%91%D7%97%D7%99%D7%A8%D7%AA%20%D7%91%D7%95%D7%A9%D7%9D%20%F0%9F%8C%BF" target="_blank" rel="noopener">
-          💬 הזמנה בוואטסאפ
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="row">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <div class="name">Luxury Fragrance — Demo</div>
+          <div class="sub">Cinematic • Minimal • WhatsApp Conversion</div>
+        </div>
+      </div>
+
+      <div class="nav">
+        <a href="#collections">קולקציות</a>
+        <a href="#products">מוצרים</a>
+        <a href="#reviews">המלצות</a>
+        <a href="#faq">שאלות</a>
+        <a class="btn primary" href="https://wa.me/972549564011?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%A2%D7%9C%20%D7%91%D7%97%D7%99%D7%A8%D7%AA%20%D7%91%D7%95%D7%A9%D7%9D%20%F0%9F%8C%BF" target="_blank" rel="noopener">
+          הזמנה בוואטסאפ
         </a>
-        <a class="btn" href="#men">בשמים לגברים</a>
-        <a class="btn" href="#women">בשמים לנשים</a>
-        <a class="btn gold" href="#visit">📍 בואו לבקר בחנות</a>
       </div>
+    </div>
+  </div>
 
-      <div class="grid cols3 kpis">
-        <div class="kpi"><b>עמידות גבוהה</b><span>בחירה מצוינת ביחס למחיר – במיוחד לשימוש יומי.</span></div>
-        <div class="kpi"><b>התאמה אישית</b><span>אומרים לנו: “סוף סוף מישהו מבין מה אני אוהב/ת”.</span></div>
-        <div class="kpi"><b>מתנה בטוחה</b><span>ריחות מוכרים ואהובים שמתאימים כמעט לכל אחד.</span></div>
-      </div>
-    </header>
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="heroGrid">
+        <div class="card sweep heroMain reveal">
+          <div class="eyebrow"><span class="dot"></span> דמו “ברמה עולמית” להצגה לבעל העסק</div>
+          <h1>ניחוח שמרגיש יוקרתי.<br/>חוויית מותג שמוכרת.</h1>
+          <p class="lead">
+            זה לא “דף מוצרים”. זו <b>חוויית פרימיום</b> שמייצרת אמון, משדרת איכות,
+            וגורמת ללקוח לעשות דבר אחד: <b>לשלוח הודעה בוואטסאפ</b>.
+            <br><span style="color:var(--muted2);font-size:12.5px;">
+              (דמו בלבד — השתמש ב-Inspired by/בהשראת במקום שמות מותגים כדי להימנע מסיכונים משפטיים)
+            </span>
+          </p>
 
-    <section class="section card">
-      <h2>למה לבחור בנו?</h2>
-      <div class="grid cols2" style="margin-top:14px">
-        <div class="kpi"><b>ריחות מוכרים – בלי לשלם על השם</b><span>אנחנו בונים בחירה סביב הריח וההרגשה, לא סביב הלוגו.</span></div>
-        <div class="kpi"><b>עוזרים לבחור נכון</b><span>חזקים או עדינים? יומי או אירועים? נשאל 2–3 שאלות ונתאים.</span></div>
-      </div>
-      <p class="note" style="margin-top:14px">
-        *הבשמים מוצגים כהשראה לניחוחות מוכרים ואינם קשורים לחברות המקוריות.
-      </p>
-    </section>
+          <div class="ctaRow">
+            <a class="btn primary" href="#products">בחר ניחוח עכשיו</a>
+            <a class="btn" href="#collections">צפה בקולקציות</a>
+            <a class="btn ghost" href="https://wa.me/972549564011?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%94%D7%9E%D7%9C%D7%A6%D7%94%20%D7%9C%D7%A0%D7%99%D7%97%D7%95%D7%97%20%D7%A8%D7%A2%D7%A0%D7%9F%2F%D7%9E%D7%AA%D7%95%D7%A7%2F%D7%A2%D7%A6%D7%99%2F%D7%A2%D7%A8%D7%91%20%F0%9F%92%AC" target="_blank" rel="noopener">
+              ייעוץ מהיר
+            </a>
+          </div>
 
-    <section class="section" id="men">
-      <h2>בשמים לגברים</h2>
-      <div class="grid cols3">
-        <div class="card prod">
-          <span class="tag">Inspired</span>
-          <h3>Savage Night</h3>
-          <p>ניחוח רענן-גברי עם נוכחות ברורה. מתאים ליום ולערב.</p>
-          <div class="meta">
-            <span class="chip">רענן</span><span class="chip">עצים</span><span class="chip">נוכחות</span>
+          <div class="heroMeta">
+            <div class="pill">✔ התאמה אישית לפי טעם</div>
+            <div class="pill">✔ “לוק” מותג פרימיום</div>
+            <div class="pill">✔ הזמנה בוואטסאפ בקליק</div>
           </div>
         </div>
-        <div class="card prod">
-          <span class="tag">Inspired</span>
-          <h3>Blue Code</h3>
-          <p>ריח נקי, אלגנטי ויומיומי. לגבר שאוהב פשטות יוקרתית.</p>
-          <div class="meta">
-            <span class="chip">נקי</span><span class="chip">אלגנטי</span><span class="chip">יומיומי</span>
-          </div>
-        </div>
-        <div class="card prod">
-          <span class="tag">Inspired</span>
-          <h3>Black Crown</h3>
-          <p>ניחוח עוצמתי ודומיננטי לאירועים ולרושם ראשון חזק.</p>
-          <div class="meta">
-            <span class="chip">חזק</span><span class="chip">יוקרה</span><span class="chip">אירועים</span>
+
+        <div class="card heroSide reveal">
+          <div class="sideImg" aria-label="Editorial fragrance visual"></div>
+          <div class="sideBody">
+            <div class="sideTitle">הדמו הזה בנוי כדי למכור</div>
+            <div class="sideText">כותרת חזקה, גלריה יוקרתית, מוצר → מודאל → וואטסאפ. מינימום חיכוך.</div>
+            <div class="kpis">
+              <div class="kpi"><div class="big">RTL</div><div class="small">תואם עברית</div></div>
+              <div class="kpi"><div class="big">Premium UI</div><div class="small">תדמית “יוקרתי”</div></div>
+              <div class="kpi"><div class="big">Modal</div><div class="small">פרטים חכמים</div></div>
+              <div class="kpi"><div class="big">CTA</div><div class="small">וואטסאפ בולט</div></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="women">
-      <h2>בשמים לנשים</h2>
-      <div class="grid cols3">
-        <div class="card prod">
-          <span class="tag">Inspired</span>
-          <h3>Golden Bloom</h3>
-          <p>נשיות אלגנטית ומאוזנת. בחירה מושלמת כמתנה.</p>
-          <div class="meta">
-            <span class="chip">אלגנטי</span><span class="chip">מתנה</span><span class="chip">מאוזן</span>
+    <!-- WHY -->
+    <section class="reveal">
+      <div class="sectionTitle">
+        <h2>למה זה נראה “מותג עולמי”?</h2>
+        <p>קומפוזיציה נקייה, תאורה, טיפוגרפיה, והיררכיה שמובילה לפעולה.</p>
+      </div>
+      <div class="grid3">
+        <div class="feature">
+          <b>מינימליזם יוקרתי</b>
+          <span>הרבה “אוויר”, קונטרסט נכון, ותנועה עדינה שמרגישה פרימיום.</span>
+        </div>
+        <div class="feature">
+          <b>מסלול משתמש ברור</b>
+          <span>מוצר → פרטים → הודעה. אין “רעש” ואין בלבול.</span>
+        </div>
+        <div class="feature">
+          <b>אמון לפני מחיר</b>
+          <span>מראה מותג יוצר תחושת איכות שמצדיקה קנייה ומעלה המרה.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLECTIONS (Editorial panels) -->
+    <section id="collections" class="reveal">
+      <div class="sectionTitle">
+        <h2>קולקציות</h2>
+        <p>תצוגה סיפורית (כמו מותגי יוקרה) — מחזקת רגש וזכירות.</p>
+      </div>
+
+      <div class="strip">
+        <div class="panel">
+          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1519669011783-4eaa95fa1b7d?auto=format&fit=crop&w=1600&q=70');"></div>
+          <div class="content">
+            <div class="tag">FRESH / CLEAN</div>
+            <h3>רענן. נקי. יומיומי.</h3>
+            <p>למי שרוצה ניחוח שמרגיש “מסודר” — עבודה, יום-יום, קיץ.</p>
           </div>
         </div>
-        <div class="card prod">
-          <span class="tag">Inspired</span>
-          <h3>Midnight Rose</h3>
-          <p>ריח חמים וממכר לערב ולאירועים מיוחדים.</p>
-          <div class="meta">
-            <span class="chip">חמים</span><span class="chip">ערב</span><span class="chip">ממכר</span>
-          </div>
-        </div>
-        <div class="card prod">
-          <span class="tag">Inspired</span>
-          <h3>Pure Grace</h3>
-          <p>ניחוח רך ונעים לשימוש יומי. נקי ונוח לאורך היום.</p>
-          <div class="meta">
-            <span class="chip">רך</span><span class="chip">נעים</span><span class="chip">יומי</span>
+
+        <div class="panel">
+          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=1600&q=70');"></div>
+          <div class="content">
+            <div class="tag">NIGHT / DEEP</div>
+            <h3>ערב. עומק. נוכחות.</h3>
+            <p>מתאים לאירועים ולדייטים — ריח שנשאר בזיכרון.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section card faq">
-      <h2>שאלות נפוצות</h2>
-      <div class="grid" style="gap:10px;margin-top:14px">
-        <details>
-          <summary>האם זה בושם מקורי?</summary>
-          <p>לא. מדובר בבשמים בהשראת ניחוחות מוכרים, ללא קשר לחברות המקוריות.</p>
-        </details>
-        <details>
-          <summary>האם הריח דומה?</summary>
-          <p>כן, דומה מאוד בתחושה הכללית. המטרה היא לקבל “את אותו הוייב” במחיר חכם.</p>
-        </details>
-        <details>
-          <summary>איך בוחרים נכון?</summary>
-          <p>פשוט: אומרים לנו אם אתם אוהבים ריח חזק/עדין, יומי/אירועים, מתוק/עציי – ואנחנו מתאימים.</p>
-        </details>
+    <!-- PRODUCTS -->
+    <section id="products" class="reveal">
+      <div class="sectionTitle">
+        <h2>מוצרים מובילים</h2>
+        <p>לחץ על “פרטים” → הזמנה בוואטסאפ בתוך שניות.</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="tabs" id="tabs">
+          <div class="tabBtn active" data-cat="all">הכל</div>
+          <div class="tabBtn" data-cat="fresh">רענן</div>
+          <div class="tabBtn" data-cat="sweet">מתוק</div>
+          <div class="tabBtn" data-cat="woody">עצי</div>
+          <div class="tabBtn" data-cat="night">ערב</div>
+        </div>
+        <div class="search">
+          <input id="q" type="search" placeholder="חיפוש… (וניל / הדרים / מושק)" />
+        </div>
+      </div>
+
+      <div class="products" id="productGrid">
+        <!-- Demo images: replace with licensed product imagery -->
+        <article class="product" data-cat="night" data-name="לילה אלגנטי" data-notes="ענבר, תבלינים, מושק" data-price="₪169"
+          data-img="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=1600&q=70">
+          <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=1600&q=70');">
+            <div class="badge">BEST</div>
+          </div>
+          <div class="pbody">
+            <div class="pname">לילה אלגנטי (Inspired)</div>
+            <div class="pdesc">ערב עמוק עם נוכחות — אלגנטי, עמיד, מרשים.</div>
+            <div class="prow">
+              <div class="price">₪169</div>
+              <button class="smallBtn" data-action="open">פרטים</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-cat="fresh" data-name="הדרים נקיים" data-notes="ברגמוט, לימון, ים" data-price="₪149"
+          data-img="https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?auto=format&fit=crop&w=1600&q=70">
+          <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?auto=format&fit=crop&w=1600&q=70');">
+            <div class="badge">FRESH</div>
+          </div>
+          <div class="pbody">
+            <div class="pname">הדרים נקיים (Inspired)</div>
+            <div class="pdesc">רענן ומדויק — מושלם ליום-יום ולקיץ.</div>
+            <div class="prow">
+              <div class="price">₪149</div>
+              <button class="smallBtn" data-action="open">פרטים</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-cat="sweet" data-name="וניל קלאסי" data-notes="וניל, פרחים לבנים, קרמל" data-price="₪159"
+          data-img="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=1600&q=70">
+          <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=1600&q=70');">
+            <div class="badge">SWEET</div>
+          </div>
+          <div class="pbody">
+            <div class="pname">וניל קלאסי (Inspired)</div>
+            <div class="pdesc">מתוק, חם וממכר — “וואו” כבר מהשפריץ הראשון.</div>
+            <div class="prow">
+              <div class="price">₪159</div>
+              <button class="smallBtn" data-action="open">פרטים</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-cat="woody" data-name="עץ נקי" data-notes="ארז, וטיבר, מושק" data-price="₪169"
+          data-img="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1600&q=70">
+          <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1600&q=70');">
+            <div class="badge">WOODY</div>
+          </div>
+          <div class="pbody">
+            <div class="pname">עץ נקי (Inspired)</div>
+            <div class="pdesc">אלגנטי ונקי — מתאים גם למשרד, יוניסקס.</div>
+            <div class="prow">
+              <div class="price">₪169</div>
+              <button class="smallBtn" data-action="open">פרטים</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-cat="fresh" data-name="פרח עדין" data-notes="יסמין, פירות, אבקה" data-price="₪149"
+          data-img="https://images.unsplash.com/photo-1619994121345-b61cd610d0d5?auto=format&fit=crop&w=1600&q=70">
+          <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1619994121345-b61cd610d0d5?auto=format&fit=crop&w=1600&q=70');">
+            <div class="badge">NEW</div>
+          </div>
+          <div class="pbody">
+            <div class="pname">פרח עדין (Inspired)</div>
+            <div class="pdesc">קליל אבל מורגש — נקי, נשי, מחמיא.</div>
+            <div class="prow">
+              <div class="price">₪149</div>
+              <button class="smallBtn" data-action="open">פרטים</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-cat="night" data-name="שוקולד ותבלין" data-notes="קקאו, קינמון, ענבר" data-price="₪179"
+          data-img="https://images.unsplash.com/photo-1585386959984-a41552231693?auto=format&fit=crop&w=1600&q=70">
+          <div class="pimg" style="background-image:url('https://images.unsplash.com/photo-1585386959984-a41552231693?auto=format&fit=crop&w=1600&q=70');">
+            <div class="badge">LIMITED</div>
+          </div>
+          <div class="pbody">
+            <div class="pname">שוקולד ותבלין (Inspired)</div>
+            <div class="pdesc">כבד-מתוק, מסקרן וממכר — למי שאוהב נוכחות.</div>
+            <div class="prow">
+              <div class="price">₪179</div>
+              <button class="smallBtn" data-action="open">פרטים</button>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section card" id="visit">
-      <h2>בואו לבקר / הזמנה מהירה</h2>
-      <p class="sub" style="margin:0 0 14px">
-        רוצים המלצה אישית? שלחו הודעה בוואטסאפ ונשאל 2–3 שאלות קצרות כדי להתאים לכם את הריח.
-      </p>
-      <div class="ctaRow">
-        <a class="btn primary" href="https://wa.me/972XXXXXXXXX?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%9E%D7%9C%D7%A6%D7%94%20%D7%A2%D7%9C%20%D7%91%D7%95%D7%A9%D7%9D%20%F0%9F%91%83" target="_blank" rel="noopener">
-          💬 שלחו הודעה עכשיו
-        </a>
-        <div class="btn" style="pointer-events:none">📍 בוקעתא · 🕒 פתוח כל השבוע</div>
+    <!-- REVIEWS -->
+    <section id="reviews" class="reveal">
+      <div class="sectionTitle">
+        <h2>המלצות</h2>
+        <p>לדמו: החלף בהמלצות אמיתיות של לקוחות.</p>
       </div>
-      <p class="note" style="margin-top:12px">
-        ניתן להחליף שם חנות, כתובת ושעות פתיחה לפי הצורך — זה דמו להמחשה.
-      </p>
+      <div class="quotes">
+        <div class="quote">
+          <p>“הדף נראה יוקרתי. הזמנתי בקליק והיה שירות מהיר.”</p>
+          <div class="who">רנא</div>
+          <div class="meta">מג'דל שמס</div>
+        </div>
+        <div class="quote">
+          <p>“הבחירה לפי רענן/עצי עוזרת. קל להבין ולפעול.”</p>
+          <div class="who">חאדי</div>
+          <div class="meta">בוקעתא</div>
+        </div>
+        <div class="quote">
+          <p>“כפתור וואטסאפ בולט — זה בדיוק מה שחסר ברוב האתרים.”</p>
+          <div class="who">תהר</div>
+          <div class="meta">מסעדה</div>
+        </div>
+      </div>
     </section>
 
-    <footer>
-      <div class="footerRow">
-        <div>לא משלמים על השם – משלמים על ההרגשה.</div>
-        <div class="note">Demo Page · Fragrance Boutique | בוקעתא</div>
+    <!-- FAQ -->
+    <section id="faq" class="reveal">
+      <div class="sectionTitle">
+        <h2>שאלות נפוצות</h2>
+        <p>מוריד התנגדויות → מעלה המרות.</p>
+      </div>
+      <details>
+        <summary>איך מזמינים?</summary>
+        <p>לוחצים “הזמנה בוואטסאפ”, כותבים איזה מוצר/סוג ריח, ומקבלים מענה אישי.</p>
+      </details>
+      <details>
+        <summary>אפשר המלצה לפי טעם?</summary>
+        <p>כן. כתבו: מתוק/רענן/עצי/ערב + מתי אתם משתמשים, ונציע 2–3 אופציות.</p>
+      </details>
+      <details>
+        <summary>מה לשים במקום שמות מותגים?</summary>
+        <p>הכי בטוח: “Inspired by / בהשראת” + תיאור תווי הריח. בלי לוגואים ובלי שמות רשמיים.</p>
+      </details>
+    </section>
+
+    <footer class="reveal">
+      <div class="footRow">
+        <div>© Luxury Fragrance Demo</div>
+        <div>Designed for premium conversion • WhatsApp-first • RTL</div>
       </div>
     </footer>
+  </main>
+
+  <!-- Floating WhatsApp -->
+  <a class="waFloat" href="https://wa.me/972549564011?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%95%D7%A9%D7%9D%20%F0%9F%92%AC" target="_blank" rel="noopener">
+    <span class="waIcon" aria-hidden="true"></span>
+    הזמנה מהירה
+  </a>
+
+  <!-- Modal -->
+  <div class="modalOverlay" id="modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Product details">
+      <div class="mImg" id="mImg"></div>
+      <div class="mBody">
+        <div class="mTop">
+          <div>
+            <h3 id="mTitle">מוצר</h3>
+            <div class="mTags" id="mTags"></div>
+          </div>
+          <button class="close" id="mClose" aria-label="Close">✕</button>
+        </div>
+        <p id="mDesc">תיאור מוצר</p>
+        <div class="ctaRow">
+          <a class="btn primary" id="mWA" target="_blank" rel="noopener">הזמנה בוואטסאפ</a>
+          <a class="btn" href="#products" onclick="closeModal()">חזרה</a>
+        </div>
+        <div style="margin-top:10px;color:var(--muted2);font-size:12.5px;line-height:1.6">
+          טיפ פרימיום: הוסף נפחים (50/100ml) + “עמידות” + “למי מתאים” כדי להעלות המרה.
+        </div>
+      </div>
+    </div>
   </div>
+
+  <script>
+    // ====== CONFIG ======
+    const WA_NUMBER = "972549564011";
+
+    // ====== FILTERS ======
+    const tabs = document.querySelectorAll(".tabBtn");
+    const cards = Array.from(document.querySelectorAll(".product"));
+    const q = document.getElementById("q");
+    let currentCat = "all";
+
+    function applyFilter(){
+      const term = (q.value || "").trim().toLowerCase();
+      cards.forEach(card=>{
+        const cat = card.dataset.cat;
+        const name = (card.dataset.name || "").toLowerCase();
+        const notes = (card.dataset.notes || "").toLowerCase();
+        const inCat = (currentCat === "all" || currentCat === cat);
+        const inSearch = (!term || name.includes(term) || notes.includes(term));
+        card.style.display = (inCat && inSearch) ? "" : "none";
+      });
+    }
+
+    tabs.forEach(t=>{
+      t.addEventListener("click", ()=>{
+        tabs.forEach(x=>x.classList.remove("active"));
+        t.classList.add("active");
+        currentCat = t.dataset.cat;
+        applyFilter();
+      });
+    });
+    q.addEventListener("input", applyFilter);
+
+    // ====== MODAL ======
+    const modal = document.getElementById("modal");
+    const mImg = document.getElementById("mImg");
+    const mTitle = document.getElementById("mTitle");
+    const mDesc = document.getElementById("mDesc");
+    const mTags = document.getElementById("mTags");
+    const mWA = document.getElementById("mWA");
+    const mClose = document.getElementById("mClose");
+
+    function openModal(card){
+      const name = card.dataset.name || "מוצר";
+      const notes = card.dataset.notes || "";
+      const price = card.dataset.price || "";
+      const img = card.dataset.img || "";
+      const cat = card.dataset.cat || "";
+
+      mImg.style.backgroundImage = `url('${img}')`;
+      mTitle.textContent = `${name} (Inspired) — ${price}`;
+
+      const catLabel = ({fresh:"רענן", sweet:"מתוק", woody:"עצי", night:"ערב"})[cat] || "סגנון";
+      mTags.innerHTML = "";
+      [catLabel, ...notes.split(",").map(s=>s.trim()).filter(Boolean)]
+        .slice(0,6)
+        .forEach(tag=>{
+          const el = document.createElement("span");
+          el.className = "tag";
+          el.textContent = tag;
+          mTags.appendChild(el);
+        });
+
+      mDesc.textContent = `תווי ריח: ${notes}. רוצה המלצה על דומה/עדין יותר/חזק יותר? כתוב לנו.`;
+
+      const text = encodeURIComponent(`שלום, אני רוצה להזמין: ${name} (${price}). אפשר פרטים?`);
+      mWA.href = `https://wa.me/${WA_NUMBER}?text=${text}`;
+
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(){
+      modal.style.display = "none";
+      document.body.style.overflow = "";
+    }
+    window.closeModal = closeModal;
+
+    document.getElementById("productGrid").addEventListener("click", (e)=>{
+      const btn = e.target.closest("[data-action='open']");
+      if(!btn) return;
+      const card = e.target.closest(".product");
+      if(card) openModal(card);
+    });
+
+    mClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
+    document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+
+    // ====== REVEAL ON SCROLL ======
+    const reveals = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){
+          en.target.classList.add("in");
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold: 0.12});
+    reveals.forEach(el=>io.observe(el));
+
+    // init
+    applyFilter();
+  </script>
 </body>
 </html>
